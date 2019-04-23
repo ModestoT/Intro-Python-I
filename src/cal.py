@@ -22,3 +22,24 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+
+now = datetime.now()
+
+def createCal(month = now.month, year=now.year):
+  c = calendar.TextCalendar(firstweekday=6)
+  cal = c.formatmonth(year, month)
+  print(cal)
+
+if len(sys.argv) > 1:
+  if len(sys.argv) > 2:
+    if not sys.argv[1].isdecimal():
+      print('Please input the month and year as numbers')
+    else:
+      createCal(int(sys.argv[1]), int(sys.argv[2]))
+  else:
+    if not sys.argv[1].isdecimal():
+      print('Please input the month and year as numbers')
+    else:
+      createCal(int(sys.argv[1]))
+else:
+  createCal()
